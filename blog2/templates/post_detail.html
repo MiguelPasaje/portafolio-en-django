@@ -1,8 +1,13 @@
-<h1>post</h1>
+{% extends 'layout.html' %}
 
-<p>{{ post_id }}</p>
+{% block content %}
+  <div class="text-center">
+    <h2>{{ post.title }}</h2>
+    <h3 class="my-2 h5 text-muted">{{ post.date|date:'F jS Y' }}</h3>
+  </div>
 
-<h2>{{ post.title }}</h2>
-<h3>{{ post.date }}</h3>
-<p>{{ post.description }}</p>
-<img src="{{ post.image.url }}" alt="{{ post.title }}" width="100" />
+  <img src="{{ post.image.url }}" alt="{{ post.title }}" class="img-fluid" />
+  <div class="my-4">
+    <p>{{ post.description|safe }}</p>
+  </div>
+{% endblock %}
